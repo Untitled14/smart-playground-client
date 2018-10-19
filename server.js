@@ -3,8 +3,6 @@ const path = require("path");
 
 const app = new express();
 
-require('dotenv').load();
-
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'dist')));
