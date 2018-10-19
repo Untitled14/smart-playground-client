@@ -5,10 +5,10 @@ const app = new express();
 
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join('dist')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use("*", function (req, resp) {
-    resp.sendFile(path.join('dist', 'index.html'));
+    resp.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => {
