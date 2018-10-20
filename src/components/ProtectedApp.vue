@@ -1,14 +1,15 @@
 <template>
-  <router-view v-if="isLoggedIn"/>
-  <login-form v-else/>
+  <div>
+    <nav-menu />
+  </div>
 </template>
 
 <script>
-import LoginForm from '@src/components/partials/LoginForm'
+import NavMenu from '@src/components/partials/NavMenu'
 
 export default {
   components: {
-    LoginForm
+    NavMenu
   },
   data() {
     return {
