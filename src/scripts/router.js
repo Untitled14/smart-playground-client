@@ -3,8 +3,8 @@ import Router from 'vue-router'
 
 import ProtectedApp from '@src/components/ProtectedApp'
 import DashboardPage from '@src/components/pages/DashboardPage'
-import TrainerPage from '@src/components/pages/trainer/TrainerPage'
-import TrainerListPage from '@src/components/pages/trainer/TrainerListPage'
+import TrainerPage from '@src/components/pages/Trainer/TrainerPage'
+import TrainerListPage from '@src/components/pages/Trainer/TrainerListPage'
 
 Vue.use(Router)
 
