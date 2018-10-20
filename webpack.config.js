@@ -60,13 +60,13 @@ module.exports = {
     port: 3000,
     historyApiFallback: true,
     overlay: true,
-    // proxy: {
-    //   '/api': {
-    //     target: 'https://localhost:44300',
-    //     secure: true,
-    //     changeOrigin: true
-    //   }
-    // }
+    proxy: {
+      '/api': {
+        target: 'https://smart-playground.herokuapp.com',
+        secure: true,
+        changeOrigin: true
+      }
+    }
   },
   performance: {
     hints: false,

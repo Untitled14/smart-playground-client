@@ -1,10 +1,12 @@
-import BASE_URL from 'https://smart-playground.herokuapp.com/api'
+// const BASE_URL='https://smart-playground.herokuapp.com/api'
+const BASE_URL=`${window.location.origin}/api`;
 
 function httpGet(path, params) {
-  return fetch(fullUrl(method), {
+  return fetch(fullUrl(path), {
     method: 'GET',
     cache: 'no-cache',
-    mode: 'no-cors',
+    mode: 'cors',
+    credentials: 'include', 
     headers: {
       'Content-Type': 'application/json'
     }
