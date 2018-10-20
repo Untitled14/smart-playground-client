@@ -1,7 +1,9 @@
 <template>
   <div>
-      <div v-for="(trainer, index) in trainers" :key="index">
-          <div v-bind="selectedTrainer" @click='fireEvent(trainer, index)'>{{trainer.name}}</div>
+      <div v-if="!trainerId">
+        <div v-for="(trainer, index) in trainers" :key="index">
+            <div v-bind="selectedTrainer" @click='fireEvent(trainer, index)'>{{trainer.name}}</div>
+        </div>
       </div>
       <trainer-info v-if="selectedTrainer" :trainer="selectedTrainer"/>
   </div>
@@ -15,6 +17,11 @@ export default {
   components: {
     TrainerInfo
   },
+  props: {
+    trainerId: {
+      type: String
+    }
+  },
    data () {
     return { 
       trainers : null,
@@ -25,7 +32,15 @@ export default {
     async loadData() {
        try {
         const response = await Api.httpGet("trainers");
+        const self = this;
         if (response.trainers) {
+            if (this.trainerId) {
+              response.trainers.forEach(t => {
+                if (this.trainerId === t._id) {
+                  this.selectedTrainer = t;
+                }
+              })
+            }
             this.trainers = response.trainers;
         }
        } catch(exception) {

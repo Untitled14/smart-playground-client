@@ -1,7 +1,7 @@
 <template>
   <div>
     <map-component />
-    <router-view @change="onChange" />
+    <router-view @change="onChange" :trainerId = "trainerId"/>
   </div>
 </template>
 
@@ -13,6 +13,11 @@ export default {
   components: {
     MapComponent
   },
+  props: {
+    trainerId: {
+      type: String
+    }
+  },
   data () {
     return { 
       playgrounds : null,
@@ -21,7 +26,6 @@ export default {
   },
    methods: {
     onChange(trainerId) {
-      console.log(trainerId);
       if (trainerId) {
         this.playgroundsByTrainer = this.playgrounds.filter(playground => {
                 return playground.trainers.includes(trainerId);
@@ -33,7 +37,6 @@ export default {
     async loadData() {
        try {
         const response = await Api.httpGet("playgrounds");
-        console.log(response);
         if (response.playgrounds) {
             this.playgrounds = response.playgrounds;
             this.playgroundsByTrainer = this.playgrounds;
@@ -43,8 +46,8 @@ export default {
        }
     }
   },
-  created() {
-    this.loadData();
+  async created() {
+    await this.loadData();
   }
 }
 </script>
