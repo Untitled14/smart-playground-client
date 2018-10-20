@@ -84,24 +84,17 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.tpl.html'),
-      // favicon: 'public/favicon.ico'
+      template: path.resolve(__dirname, 'src', 'index.tpl.html')
     }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   sourceMap: true,
-    //   compress: {
-    //     warnings: false
-    //   }
-    // }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    })
+    }),
+    new VueLoaderPlugin()
   ])
 } else {
   module.exports.plugins = [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.tpl.html'),
-      // favicon: 'public/favicon.ico'
+      template: path.resolve(__dirname, 'src', 'index.tpl.html')
     }),
     new VueLoaderPlugin()
   ]
