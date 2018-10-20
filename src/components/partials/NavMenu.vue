@@ -1,13 +1,13 @@
 <template>
-  <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
+  <el-menu mode="horizontal">
     <el-menu-item index="1">
-      <router-link :to="{name: 'Dashboard'}"/>
+      <router-link :to="{name: 'Dashboard'}">Home</router-link>
     </el-menu-item>
     <el-menu-item index="3">
-      <router-link :to="{name: 'Trainer'}"/>
+      <router-link :to="{name: 'TrainerItem'}">Trainer</router-link>
     </el-menu-item>
     <el-menu-item index="4">
-      <router-link :to="{name: 'Trainer', }"/>
+      <router-link :to="{name: 'TrainerGroup'}">Muscles Group</router-link>
     </el-menu-item>
   </el-menu>
 </template>
@@ -16,13 +16,6 @@
 export default {
   data() {
     return {
-      activeIndex: '1',
-      activeIndex2: '1'
-    };
-  },
-  methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
     }
   }
 }

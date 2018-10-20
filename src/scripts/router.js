@@ -11,8 +11,9 @@ Vue.use(Router)
 export const routes = [
   { path: '/', component: ProtectedApp, children: [
     { path: '', name: 'Dashboard', component: DashboardPage },
-    { path: 'trainer/:trainerId?', component: TrainerPage, children: [
-      { path: '', name: 'TrainerList', component: TrainerListPage }
+    { path: 'trainer/:trainerId?', props: true, component: TrainerPage, children: [
+      { path: '', name: 'TrainerItem', component: TrainerListPage },
+      { path: 'group', name: 'TrainerGroup', component: TrainerListPage }
     ]}
   ]},
   { path: '**', redirect: {name: 'Landing'} }
@@ -20,5 +21,6 @@ export const routes = [
 
 export default new Router({
   mode: 'history',
-  routes: routes
+  routes: routes,
+  linkExactActiveClass: 'active'
 })

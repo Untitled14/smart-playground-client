@@ -1,0 +1,18 @@
+:root {
+  --dark: #333;
+  --light: #fff;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+a {
+  text-decoration: none;
+}
