@@ -58,7 +58,6 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json'],
   },
   devServer: {
-    //host: 'dev.playgound.com',
     port: 3000,
     historyApiFallback: true,
     overlay: true,
