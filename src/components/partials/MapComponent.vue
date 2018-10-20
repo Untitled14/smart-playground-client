@@ -6,9 +6,14 @@
         <vl-layer-tile id="osm">
             <vl-source-osm></vl-source-osm>
         </vl-layer-tile>
-        <vl-feature :id="'point_' + index" v-for="(trainer,index) in playgrounds" :key="index" v-if="playgrounds">
-          <vl-geom-point :coordinates="[trainer.location.lat, trainer.location.lng]" />
-        </vl-feature>
+        <template slot-scope="geoloc">
+          <vl-feature :id="'point_' + index" v-for="(trainer,index) in trainers" :key="index" v-if="trainers">
+            <vl-geom-point :coordinates="[trainer.location.lat, trainer.location.lng]" />
+          </vl-feature>
+        </template>
+        <div v-for="(trainer,idx) in trainers" :key="idx+'n'">
+            {{trainer.location.lat}} {{trainer.location.lng}}
+        </div>
     </vl-map>
   </div>
 </div>
@@ -23,15 +28,16 @@ export default {
       zoom: 12,
       center: [25.279651400000034, 54.6871555],
       rotation: 0,
-      playgrounds : null
+      trainers : null
     }
   },
   methods : {
     async loadData() {
        try {
-        const response = await Api.httpGet("playgrounds");
-        if (response.playgrounds) {
-            this.playgrounds = response.playgrounds;
+        const response = await Api.httpGet("trainers");
+        if (response.trainers) {
+            this.trainers = response.trainers;
+            console.log(this.trainers);
         }
        } catch(exception) {
          console.error(exception);
@@ -54,3 +60,5 @@ export default {
     height: 30rem;
   }
 </style>
+
+
