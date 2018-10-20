@@ -1,5 +1,5 @@
-// const BASE_URL='https://smart-playground.herokuapp.com/api'
-const BASE_URL=`${window.location.origin}/api`;
+const BASE_URL='https://smart-playground.herokuapp.com/api'
+// const BASE_URL=`${window.location.origin}/api`;
 
 function httpGet(path, params) {
   return fetch(fullUrl(path), {
