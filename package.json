@@ -13,7 +13,7 @@
     "element-ui": "^2.4.8",
     "npm": "^6.4.1",
     "vue": "^2.5.17",
-    "vue2-google-maps": "^0.10.2"
+    "vuelayers": "^0.10.13"
   },
   "devDependencies": {
     "babel-loader": "^8.0.4",
