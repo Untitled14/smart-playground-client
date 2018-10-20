@@ -1,7 +1,12 @@
 <template>
-  <div>
-    <nav-menu />
-  </div>
+  <el-container>
+    <el-header>
+      <nav-menu/>
+    </el-header>
+    <el-main>
+      <router-view/>
+    </el-main>
+  </el-container>
 </template>
 
 <script>

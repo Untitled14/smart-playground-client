@@ -3,12 +3,17 @@ import Router from 'vue-router'
 
 import ProtectedApp from '@src/components/ProtectedApp'
 import DashboardPage from '@src/components/pages/DashboardPage'
+import TrainerPage from '@src/components/pages/trainer/TrainerPage'
+import TrainerListPage from '@src/components/pages/trainer/TrainerListPage'
 
 Vue.use(Router)
 
 export const routes = [
   { path: '/', component: ProtectedApp, children: [
-    { path: '', name: 'Dashboard', component: DashboardPage }
+    { path: '', name: 'Dashboard', component: DashboardPage },
+    { path: 'trainer/:trainerId?', component: TrainerPage, children: [
+      { path: '', name: 'TrainerList', component: TrainerListPage }
+    ]}
   ]},
   { path: '**', redirect: {name: 'Landing'} }
 ]
