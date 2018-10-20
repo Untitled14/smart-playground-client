@@ -86,10 +86,13 @@ export default {
 <style scoped>
   .map-container {
     width: 100%;
-    height: 100%;
+    height: 30rem;
+    position: fixed;
   }
 
+
   .fixed-container {
+
     width: 100%;
     height: 30rem;
   }

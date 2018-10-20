@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header>
+    <el-header class="fixed-header">
       <nav-menu/>
     </el-header>
     <el-main>
@@ -25,8 +25,18 @@ export default {
 </script>
 
 <style scoped>
+.fixed-header {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
 .el-header,
 .el-main {
   padding: 0;
+}
+.el-main{
+  margin-top: 60px;
+  overflow: hidden;
 }
 </style>

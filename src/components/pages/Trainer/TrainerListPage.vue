@@ -1,11 +1,11 @@
 <template>
-  <div>
-      <div v-if="!trainerId">
-        <div v-for="(trainer, index) in trainers" :key="index">
-            <div v-bind="selectedTrainer" @click='fireEvent(trainer, index)'>{{trainer.name}}</div>
+  <div class="trainers-container">
+      <div class="trainer-list-container" v-bind:class="{selected: selected}">
+        <div  v-for="(trainer, index) in trainers" :key="index">
+            <div class="trainer-item" v-bind="selectedTrainer" @click='fireEvent(trainer, index)'>{{trainer.name}}</div>
         </div>
       </div>
-      <trainer-info v-if="selectedTrainer" :trainer="selectedTrainer"/>
+      <trainer-info v-bind:class="{selected: selected}" v-if="selectedTrainer" :trainer="selectedTrainer" :onBackClick='onBackClick'/>
   </div>
 </template>
 
@@ -25,19 +25,20 @@ export default {
    data () {
     return { 
       trainers : null,
-      selectedTrainer: null
+      selectedTrainer: null,
+      selected: false
     }
   },
   methods : {
     async loadData() {
        try {
         const response = await Api.httpGet("trainers");
-        const self = this;
         if (response.trainers) {
             if (this.trainerId) {
               response.trainers.forEach(t => {
                 if (this.trainerId === t._id) {
                   this.selectedTrainer = t;
+                  this.selected = true;
                 }
               })
             }
@@ -49,7 +50,11 @@ export default {
     },
     fireEvent(trainer, index) {
        this.selectedTrainer = trainer;
+       this.selected = true;
        this.$emit('change', index);
+    },
+    onBackClick(){
+      this.selected = false;
     }
   },
   mounted() {
@@ -58,3 +63,33 @@ export default {
 }
 </script>
 
+<style scoped>
+  .trainers-container{
+    position: relative;
+    height: 500px;
+    background-color: #fff;
+    overflow:visible;
+  }
+  .trainer-list-container{
+    background-color: #fff;
+    /* position: absolute; */
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: max-height 1s;
+    max-height: 1000px;
+  }
+  .trainer-list-container.selected{
+    max-height: 0;
+  }
+  .trainer-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    transition: background-color 0.25s;
+  }
+
+  .trainer-item:hover {
+    background-color: #ddd;
+  }
+</style>
