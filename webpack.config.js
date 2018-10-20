@@ -73,7 +73,7 @@ module.exports = {
   performance: {
     hints: false,
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -88,12 +88,12 @@ if (process.env.NODE_ENV === 'production') {
       template: path.resolve(__dirname, 'src', 'index.tpl.html'),
       // favicon: 'public/favicon.ico'
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   sourceMap: true,
+    //   compress: {
+    //     warnings: false
+    //   }
+    // }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
