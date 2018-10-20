@@ -12,7 +12,9 @@ import PopUp from '@src/components/popup'
 import App from '@src/App.vue'
 
 Vue.use(ElementUi, { locale: elementLocale })
-Vue.use(VueLayers)
+Vue.use(VueLayers, {
+  dataProjection: 'EPSG:4326'
+})
 Vue.use(PopUp)
 
 
