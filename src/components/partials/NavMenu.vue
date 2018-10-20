@@ -20,3 +20,28 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.el-menu {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.el-menu li,
+.el-menu li.is-active {
+  border: none;
+  padding: 0;
+}
+
+.el-menu a {
+  height: 100%;
+  display: block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.el-menu a.active {
+  color: var(--gray);
+  border-bottom: 1px solid var(--gray);
+}
+</style>
