@@ -1,11 +1,12 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: '/',
     filename: 'build.js',
   },
   module: {
@@ -82,6 +83,10 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src', 'index.tpl.html'),
+      // favicon: 'public/favicon.ico'
+    }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {
@@ -94,6 +99,10 @@ if (process.env.NODE_ENV === 'production') {
   ])
 } else {
   module.exports.plugins = [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src', 'index.tpl.html'),
+      // favicon: 'public/favicon.ico'
+    }),
     new VueLoaderPlugin()
   ]
 }
