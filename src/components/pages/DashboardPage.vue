@@ -36,26 +36,14 @@ export default {
     height: 50px;
   }
   .header {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 525px;
-    margin-top: -230px;
-    margin-left: -220px;
+    margin: 2rem auto 2rem;
     max-width: 600px;
     text-align: center;
     color: #a9a9a9;
-    transform: translateY(-150px);
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-     user-select: none;
-    }
-    .header h2 {
+  }
+  .header h2 {
     font-weight: 400;
     font-size: 20px;
     margin-bottom: 25px;
-    }
+  }
 </style>
