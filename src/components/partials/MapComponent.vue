@@ -72,6 +72,9 @@ export default {
     position: absolute;
     height: 20rem;
   }
+  .fixed-container {
+    height: 20rem;
+  }
 }
 </style>
 

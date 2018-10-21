@@ -67,14 +67,14 @@ export default {
     position: absolute;
     bottom: 0;
     height: 0;
-    transition: height 0.5s;
+    transition: height 1s;
     background-color: #fff;
     overflow: hidden;
     width: 100%;
     /* padding: 10px; */
   }
   .trainer-info-container.selected {
-    height: 500px;
+    height: 700px;
   }
   @media screen and (min-width: 768px) {
     .trainer-info-container .trainer-info-back{
@@ -90,8 +90,8 @@ export default {
       height: auto;
       transition: none;
       overflow: visible;
-      width: 100%;
-      margin-left: 337px;
+      width: auto;
+      margin-left: 360px;
     }
     
   }

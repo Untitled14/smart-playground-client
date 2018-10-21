@@ -78,7 +78,7 @@ export default {
 <style scoped>
   .trainers-container{
     position: relative;
-    height: 500px;
+    height: 700px;
     background-color: #fff;
     overflow:visible;
   }
@@ -88,7 +88,7 @@ export default {
     width: 100%;
     overflow: hidden;
     transition: max-height 1s;
-    max-height: 1000px;
+    max-height: 700px;
   }
 
   .trainer-item {
@@ -107,10 +107,15 @@ export default {
     display: inline-block;
   }
   .training-groups{
+    /* position: relative; */
     float: right;
   }
   .training-groups .group{
     display: inline-block;
+    /* float: right; */
+    /* position: absolute;
+    top: 0;
+    right: 0; */
     margin-left: 5px;
   }
   @media screen and (max-width: 768px) {
@@ -121,13 +126,10 @@ export default {
   @media screen and (min-width: 768px) {
     .trainer-list-container{
       float: left;
-      width: 336px;
+      width: 360px;
       border-right: 1px solid #ccc;
     }
   }
-
-
-
   /* Muscle group styles */
   .gr {
     width: 10px;
