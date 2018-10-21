@@ -70,16 +70,12 @@ export default {
   }
   .trainer-list-container{
     background-color: #fff;
-    /* position: absolute; */
-    top: 0;
     width: 100%;
     overflow: hidden;
     transition: max-height 1s;
     max-height: 1000px;
   }
-  .trainer-list-container.selected{
-    max-height: 0;
-  }
+
   .trainer-item {
     padding: 10px;
     cursor: pointer;
@@ -90,4 +86,18 @@ export default {
   .trainer-item:hover {
     background-color: #ddd;
   }
+
+  @media screen and (max-width: 768px) {
+    .trainer-list-container.selected{
+      max-height: 0;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .trainer-list-container{
+      float: left;
+      width: 336px;
+      border-right: 1px solid #ccc;
+    }
+  }
+
 </style>

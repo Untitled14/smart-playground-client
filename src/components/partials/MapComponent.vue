@@ -59,7 +59,6 @@ export default {
   .map-container {
     width: 100%;
     height: 30rem;
-    position: fixed;
   }
 
 
@@ -72,6 +71,12 @@ export default {
   .card {
     
   }
+
+  @media screen and (max-width: 768px) {
+    .map-container{
+      position: fixed;
+    }
+}
 </style>
 
 

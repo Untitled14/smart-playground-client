@@ -1,8 +1,15 @@
 <template>
 <div class="trainer-info-container">
-  <div class="trainer-info-back" @click="onBackClick()">
+  <div class="trainer-info-back button" @click="onBackClick()">
     <h1 class="trainer-header">
       <i class="el-icon-back"></i>
+      <div class="trainer-header-title">
+        {{trainer.name}}
+      </div>
+    </h1>
+  </div>
+  <div class="trainer-info-back">
+    <h1 class="trainer-header">
       <div class="trainer-header-title">
         {{trainer.name}}
       </div>
@@ -30,7 +37,33 @@ export default {
   .trainer-header-title{
     display: inline-block;
   }
-  .trainer-info-container {
+
+  .trainer-info-back {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    transition: background-color 0.25s;
+  }
+
+  .trainer-info-container .trainer-info-back{
+    display: none;
+  }
+  .trainer-info-container .trainer-info-back.button{
+    display: block;
+  }
+
+  .button {
+    background-color: #ddd;
+    transition: background-color 0.25s;
+    cursor: pointer;
+  }
+  .button:hover {
+    background-color: #ddd;
+  }
+  .trainer-info-data{
+    padding: 10px;
+  }
+
+.trainer-info-container {
     position: absolute;
     bottom: 0;
     height: 0;
@@ -40,22 +73,27 @@ export default {
     width: 100%;
     /* padding: 10px; */
   }
-
   .trainer-info-container.selected {
     height: 500px;
   }
+  @media screen and (min-width: 768px) {
+    .trainer-info-container .trainer-info-back{
+      display: block;
+    }
+    .trainer-info-container .trainer-info-back.button{
+      display: none;
+    }
 
-  .trainer-info-back {
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #ccc;
-    transition: background-color 0.25s;
-  }
-  .trainer-info-back:hover {
-    background-color: #ddd;
-  }
-  .trainer-info-data{
-    padding: 10px;
+    .trainer-info-container {
+      position: static;
+      display: block;
+      height: auto;
+      transition: none;
+      overflow: visible;
+      width: 100%;
+      margin-left: 337px;
+    }
+    
   }
 </style>
 
