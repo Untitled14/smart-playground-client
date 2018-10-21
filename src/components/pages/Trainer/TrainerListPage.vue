@@ -46,15 +46,15 @@ export default {
        try {
         const response = await Api.httpGet("trainers");
         if (response.trainers) {
-            if (this.trainerId) {
-              response.trainers.forEach(t => {
-                if (this.trainerId === t._id) {
-                  this.selectedTrainer = t;
-                  this.selected = true;
-                }
-              })
-            }
-            this.trainers = response.trainers;
+          if (this.trainerId) {
+            response.trainers.forEach(t => {
+              if (this.trainerId === t._id) {
+                this.selectedTrainer = t;
+                this.selected = true;
+              }
+            })
+          }
+          this.trainers = response.trainers;
         }
        } catch(exception) {
          console.error(exception);

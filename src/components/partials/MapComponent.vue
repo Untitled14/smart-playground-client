@@ -14,18 +14,23 @@
         </vl-style-box>
       </vl-feature>
       <vl-interaction-select :features.sync="selectedFeatures">
-        <template slot-scope="select">
+        <template slot-scope="select" v-if="select.features">
           <vl-overlay class="feature-popup" v-for="feature in select.features"
             :key="feature.id + 'popup'" :position="feature.geometry.coordinates"
             :id="'popup_' + feature.id" :auto-pan="true">
             <template slot-scope="popup">
-              <section class="card">
-                <div class="card-content">
-                  <div class="content">
-                      {{JSON.stringify(feature.properties)}}
+              <el-card>
+                <div slot="header" class="clearfix">
+                  <h3>{{feature.properties.description}}</h3>
+                  <span>{{lat = feature.geometry.coordinates[1] | com5}},</span>
+                  <span>{{lng = feature.geometry.coordinates[0] | com5}}</span>
+                </div>
+                <div>
+                  <div class="popup-image"
+                    :style="{backgroundImage: `url('${feature.properties.image}')`}">
                   </div>
                 </div>
-              </section>
+              </el-card>
             </template>
           </vl-overlay>
         </template>
@@ -44,12 +49,24 @@ export default {
   ],
   data () {
     return { 
-      zoom: 12,
+      zoom: 13,
       center: [25.279651400000034, 54.6871555],
       rotation: 0,
       location: null,
       activeId: null,
-      selectedFeatures: null
+      selectedFeatures: null,
+      lat: null,
+      lng: null
+    }
+  },
+  filters: {
+    com5: function (value) {
+      return value.toFixed(5)
+    }
+  },
+  watch: {
+    lat: function (value) {
+      this.center = [this.lng, this.lat]
     }
   }
 }
@@ -65,6 +82,19 @@ export default {
   position: relative;
   width: 100%;
   height: 30rem;
+}
+
+.clearfix h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.popup-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 10rem;
+  width: 15rem;
 }
 
 @media screen and (max-width: 768px) {

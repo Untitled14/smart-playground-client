@@ -30,8 +30,8 @@ export default {
       if (idx) {
         console.log(this.playgrounds)
         this.playgroundsByTrainer = this.playgrounds.filter(playground => 
-                playground.trainers.includes(idx)
-              );
+          playground.trainers.includes(idx)
+        );
         console.log("playgrounds: " + this.playgroundsByTrainer)      
       } else {
         this.playgroundsByTrainer = this.playgrounds;
