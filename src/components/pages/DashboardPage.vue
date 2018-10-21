@@ -8,7 +8,7 @@
       </span>
       <h1 class="title">Vilniaus miesto viešosios sporto aikštelės</h1>
       <div></div>
-      <h2>Patogus būdas surasti sporto aikšteles aktyviam poilsiui!</h2>
+      <h2>Patogus būdas surasti sporto aikšteles aktyviam laisvalaikiui!</h2>
     </div>
     <map-component :playgrounds="playgroundsByTrainer"/>
   </div>
