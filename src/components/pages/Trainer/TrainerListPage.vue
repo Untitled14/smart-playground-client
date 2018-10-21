@@ -70,6 +70,7 @@ export default {
   }
   .trainer-list-container{
     background-color: #fff;
+    top: 0;
     width: 100%;
     overflow: hidden;
     transition: max-height 1s;
