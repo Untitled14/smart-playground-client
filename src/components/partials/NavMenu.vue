@@ -1,13 +1,13 @@
 <template>
   <el-menu mode="horizontal">
     <el-menu-item index="1">
-      <router-link :to="{name: 'Dashboard'}">Home</router-link>
+      <router-link :to="{name: 'Dashboard'}">Pagrindinis</router-link>
     </el-menu-item>
     <el-menu-item index="3">
-      <router-link :to="{name: 'TrainerItem'}">Trainer</router-link>
+      <router-link :to="{name: 'TrainerItem'}">Treniruokliai</router-link>
     </el-menu-item>
     <el-menu-item index="4">
-      <router-link :to="{name: 'TrainerGroup'}">Muscles Group</router-link>
+      <router-link :to="{name: 'TrainerGroup'}">Raumenų grupės</router-link>
     </el-menu-item>
   </el-menu>
 </template>
