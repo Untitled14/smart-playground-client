@@ -26,3 +26,39 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
+
+.gr {
+  width: 10px;
+  height: 10px;
+}
+
+.gr.nugara{
+  background-color: #bb0000;
+}
+.gr.petis{
+  background-color: #478384;
+}
+.gr.krutine{
+  background-color: #008800;
+}
+.gr.bicepsas{
+  background-color: #bbcc00;
+}
+.gr.tricepsas{
+  background-color: #bb4400;
+}
+.gr.dilbis{
+  background-color: #bb0044;
+}
+.gr.ket-galv-raum{
+  background-color: #bb00bb;
+}
+.gr.dvi-galv-raum{
+  background-color: #440044;
+}
+.gr.pilv-presas{
+  background-color: #4400bb;
+}
+.gr.blauzdos{
+  background-color: #444400;
+}
