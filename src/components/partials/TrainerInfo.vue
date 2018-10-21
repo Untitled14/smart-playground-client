@@ -16,8 +16,9 @@
     </h1>
   </div>
   <div class="trainer-info-data">
-    <div>
-        {{trainer.description}}
+    <p class="description">{{trainer.description}}</p>
+    <div class="image-container">
+      <img :src="trainer.image"/>
     </div>
   </div>
 </div>
@@ -60,7 +61,7 @@ export default {
     background-color: #ddd;
   }
   .trainer-info-data{
-    padding: 10px;
+    padding-top: 0px;
   }
 
 .trainer-info-container {
@@ -75,6 +76,19 @@ export default {
   }
   .trainer-info-container.selected {
     height: 700px;
+  }
+
+  .description {
+    margin: 0px;
+    padding: 10px;
+  }
+
+  .image-container {
+    max-width: 600px;
+    margin: auto;
+  }
+  .image-container img {
+    width: 100%;
   }
   @media screen and (min-width: 768px) {
     .trainer-info-container .trainer-info-back{

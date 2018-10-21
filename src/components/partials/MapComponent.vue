@@ -10,7 +10,7 @@
         :key="index" :properties="playground">
         <vl-geom-point :coordinates="[playground.location.lng, playground.location.lat]"/>
         <vl-style-box>
-          <vl-style-icon :src="require('@static/images/marker.png')" :scale="0.07" :anchor="[0.5, 1]" :size="[500, 500]"></vl-style-icon>
+          <vl-style-icon src="/static/images/marker.png" :scale="0.07" :anchor="[0.5, 1]" :size="[500, 500]"></vl-style-icon>
         </vl-style-box>
       </vl-feature>
       <vl-interaction-select :features.sync="selectedFeatures">

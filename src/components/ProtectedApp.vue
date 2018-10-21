@@ -34,6 +34,7 @@ export default {
 .el-header,
 .el-main {
   padding: 0;
+  overflow:initial;
 }
 
 .el-main{

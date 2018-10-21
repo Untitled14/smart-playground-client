@@ -3,7 +3,7 @@
     <div></div>
     <span class="logo">
       <span class="logo-wrap">
-        <img width="120px" height="105px" src="@static/images/logo.png">
+        <img width="120px" height="105px" src="/static/images/logo.png">
     </span>
     </span>
     <h1 class="title">Vilniaus miesto viešosios sporto aikštelės</h1>
