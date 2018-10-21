@@ -1,19 +1,54 @@
 <template>
   <div class="header">
-    <div></div>
-    <span class="logo">
-      <span class="logo-wrap">
-        <img width="120px" height="105px" src="/static/images/logo.png">
-    </span>
-    </span>
-    <h1 class="title">Vilniaus miesto viešosios sporto aikštelės</h1>
-    <div></div>
-    <h2>Patogus būdas surasti sporto aikšteles aktyviam poilsiui!</h2>
+    <div>
+      <span class="logo">
+        <span class="logo-wrap">
+          <img width="120px" height="105px" src="/static/images/logo.png">
+        </span>
+      </span>
+      <h1 class="title">Vilniaus miesto viešosios sporto aikštelės</h1>
+      <div></div>
+      <h2>Patogus būdas surasti sporto aikšteles aktyviam poilsiui!</h2>
+    </div>
+    <map-component :playgrounds="playgroundsByTrainer"/>
   </div>
 </template>
 
 <script>
+import MapComponent from '@src/components/partials/MapComponent'
+import Api from '@src/scripts/api'
+
 export default {
+  components: {
+    MapComponent
+  },
+  data() {
+    return {
+      playgroundsByTrainer: null
+    }
+  },
+  methods: {
+    async load() {
+      try {
+        const response = await Api.httpGet("playgrounds")
+        if (response.playgrounds) {
+          this.playgrounds = response.playgrounds
+          if (this.trainerId) {
+            this.playgroundsByTrainer = this.playgrounds.filter(playground => {
+              playground.trainers.includes(this.trainerId)
+            })
+          } else {
+            this.playgroundsByTrainer = this.playgrounds
+          }
+        }
+      } catch(exception) {
+        console.error(exception)
+      }
+    }
+  },
+  mounted() {
+    this.load()
+  }
 }
 </script>
 
