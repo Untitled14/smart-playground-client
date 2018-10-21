@@ -49,7 +49,7 @@ export default {
   ],
   data () {
     return { 
-      zoom: 13,
+      zoom: 12,
       center: [25.279651400000034, 54.6871555],
       rotation: 0,
       location: null,
@@ -66,7 +66,7 @@ export default {
   },
   watch: {
     lat: function (value) {
-      this.center = [this.lng, this.lat]
+      // this.center = [this.lng, this.lat]
     }
   }
 }
