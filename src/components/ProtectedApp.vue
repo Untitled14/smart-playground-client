@@ -36,7 +36,9 @@ export default {
   padding: 0;
   overflow:initial;
 }
-
+.el-header {
+  background-color: #fff;
+}
 .el-main{
   margin-top: 60px;
 }

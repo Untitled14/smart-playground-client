@@ -35,8 +35,6 @@ export default {
 
 <style scoped>
 .menu-icon{
-  padding: 5px;
-  font-size: 34px;
   display: none;
 }
 .el-menu {
@@ -73,8 +71,9 @@ export default {
     overflow: hidden;
   }
   .menu-icon{
-    padding: 5px;
-    font-size: 34px;
+    background-color: #fff;
+    padding: 10px;
+    font-size: 36px;
     display: block;
     cursor: pointer;
   }
