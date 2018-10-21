@@ -56,26 +56,22 @@ export default {
 </script>
 
 <style scoped>
+.map-container {
+  width: 100%;
+  height: 30rem;
+}
+
+.fixed-container {
+  position: relative;
+  width: 100%;
+  height: 30rem;
+}
+
+@media screen and (max-width: 768px) {
   .map-container {
-    width: 100%;
-    height: 30rem;
+    position: absolute;
+    height: 20rem;
   }
-
-
-  .fixed-container {
-
-    width: 100%;
-    height: 30rem;
-  }
-
-  .card {
-    
-  }
-
-  @media screen and (max-width: 768px) {
-    .map-container{
-      position: fixed;
-    }
 }
 </style>
 

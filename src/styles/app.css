@@ -17,3 +17,12 @@ body {
 a {
   text-decoration: none;
 }
+
+.el-main,
+.el-header ul.el-menu
+{
+  max-width: 1366px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}

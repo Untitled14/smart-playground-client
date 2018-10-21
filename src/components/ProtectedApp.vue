@@ -35,6 +35,7 @@ export default {
 .el-main {
   padding: 0;
 }
+
 .el-main{
   margin-top: 60px;
 }
@@ -43,5 +44,14 @@ export default {
   .el-main{
     overflow: hidden;
   }
+}
+
+.el-header {
+  border-bottom: solid 1px #e6e6e6;
+  box-shadow: 0 0 20px rgba(0,0,0,.2);
+}
+
+.el-header > ul {
+  margin-top: -1px;
 }
 </style>
