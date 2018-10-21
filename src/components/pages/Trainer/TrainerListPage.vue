@@ -2,7 +2,7 @@
   <div class="trainers-container">
       <div class="trainer-list-container" v-bind:class="{selected: selected}">
         <div  v-for="(trainer, index) in trainers" :key="index">
-            <div class="trainer-item" v-bind="selectedTrainer" @click='fireEvent(trainer, index)'>{{trainer.name}}</div>
+            <div class="trainer-item" v-bind="selectedTrainer" @click='fireEvent(trainer, trainer._id)'>{{trainer.name}}</div>
         </div>
       </div>
       <trainer-info v-bind:class="{selected: selected}" v-if="selectedTrainer" :trainer="selectedTrainer" :onBackClick='onBackClick'/>
@@ -17,11 +17,9 @@ export default {
   components: {
     TrainerInfo
   },
-  props: {
-    trainerId: {
-      type: String
-    }
-  },
+  props: [
+    "trainerId"
+  ],
    data () {
     return { 
       trainers : null,

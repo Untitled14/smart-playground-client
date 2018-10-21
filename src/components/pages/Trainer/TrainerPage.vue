@@ -1,6 +1,6 @@
 <template>
   <div>
-    <map-component />
+    <map-component :playgrounds="playgroundsByTrainer"/>
     <router-view @change="onChange" :trainerId = "trainerId"/>
   </div>
 </template>
@@ -25,11 +25,14 @@ export default {
     }
   },
    methods: {
-    onChange(trainerId) {
-      if (trainerId) {
-        this.playgroundsByTrainer = this.playgrounds.filter(playground => {
-                return playground.trainers.includes(trainerId);
-              });
+    onChange(idx) {
+      console.log(idx);
+      if (idx) {
+        console.log(this.playgrounds)
+        this.playgroundsByTrainer = this.playgrounds.filter(playground => 
+                playground.trainers.includes(idx)
+              );
+        console.log("playgrounds: " + this.playgroundsByTrainer)      
       } else {
         this.playgroundsByTrainer = this.playgrounds;
       }
@@ -38,8 +41,14 @@ export default {
        try {
         const response = await Api.httpGet("playgrounds");
         if (response.playgrounds) {
-            this.playgrounds = response.playgrounds;
-            this.playgroundsByTrainer = this.playgrounds;
+           this.playgrounds = response.playgrounds;
+          if (this.trainerId) {
+             this.playgroundsByTrainer = this.playgrounds.filter(playground => 
+                playground.trainers.includes(this.trainerId)
+              );
+          } else {
+             this.playgroundsByTrainer = this.playgrounds; 
+          }
         }
        } catch(exception) {
          console.error(exception);
